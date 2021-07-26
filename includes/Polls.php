@@ -54,6 +54,10 @@ class Poll{
 
     public static function showPoll($data=null){
 
+        $data=array(
+            'id'=>$data['id']
+        );
+
         $db=connect();
 
         if (isset($data['id'])) {
