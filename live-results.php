@@ -8,7 +8,8 @@ $results = \ExitPoll\Results::getSumVoters($_GET['id']);
 
 
 
-$poll  = \ExitPoll\Poll::showPoll($_GET);
+$poll  = \ExitPoll\Poll::showPoll($_GET['id']);
+
 
 
 $dataPoints = array(

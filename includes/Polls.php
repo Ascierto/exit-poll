@@ -13,12 +13,17 @@ class Poll{
         return $input;
     }
 
+    public static function validDate($input){
+        return  implode('-', array_reverse(explode('/',$input)));
+    }
+
     protected static function sanitize($fields)
     {
         
         $fields['name_poll'] = self::cleanInput($fields['name_poll']);
 
         $fields['description'] = self::cleanInput($fields['description']);
+
      
 
         return $fields;
@@ -28,15 +33,19 @@ class Poll{
 
         $form_data= array(
             'name_poll'=>$form_data['name_poll'],
-            'description'=>$form_data['description']
+            'description'=>$form_data['description'],
+            'closing_day'=>$form_data['closing_day'],
+            'is_private'=>$form_data['is_private']
         );
+
+        $form_data['closing_day']= self::validDate($form_data['closing_day']);
 
         $form_data= self::sanitize($form_data);
 
         $db=connect();
 
-        $query = $db->prepare("INSERT INTO polls(name_poll,description) VALUES (?,?) ");
-        $query->bind_param('ss',$form_data['name_poll'],$form_data['description']);
+        $query = $db->prepare("INSERT INTO polls(name_poll,description,closing_day,is_private) VALUES (?,?,?,?) ");
+        $query->bind_param('sssi',$form_data['name_poll'],$form_data['description'],$form_data['closing_day'],$form_data['is_private']);
         $query->execute();
 
         if ($query->affected_rows === 0) {
@@ -52,18 +61,16 @@ class Poll{
         $query->close();
     }
 
-    public static function showPoll($data=null){
+    public static function showPoll($id=null){
 
-        $data=array(
-            'id'=>$data['id']
-        );
+        
 
         $db=connect();
 
-        if (isset($data['id'])) {
-            $data['id'] = intval($data['id']);
+        if ($id) {
+           
             $query      = $db->prepare('SELECT * FROM polls WHERE polls.id = ?');
-            $query->bind_param('i', $data['id'],);
+            $query->bind_param('i', $id);
             $query->execute();
             $query = $query->get_result();
         } else {
@@ -78,5 +85,22 @@ class Poll{
 
         return $results;
 
+    }
+
+    public static function closePoll($id){
+
+        $db = connect();
+
+        $query= $db->prepare("UPDATE polls SET is_closed =1 WHERE id=?");
+        $query->bind_param('s',$id);
+        $query->execute();
+
+        if ($query->affected_rows > 0) {
+            header('Location: http://localhost:8888/exit-poll/show-polls.php?stato=ok');
+            exit;
+        } else {
+            header('Location: http://localhost:8888/exit-poll/show-polls.php?stato=ko');
+            exit;
+        }
     }
 }

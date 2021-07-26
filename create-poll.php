@@ -12,11 +12,22 @@
                 <form method="POST" action="./includes/insert-poll.php">
                     <div class="mb-3">
                         <label for="name_poll" class="form-label">Inserisci il nome della votazione</label>
-                        <input name="name_poll" type="text" class="form-control" id="name_poll">
+                        <input name="name_poll" type="text" class="form-control" id="name_poll" required>
                     </div>
                     <div class="mb-3">
                         <label for="description" class="form-label">Descrizione</label>
-                        <textarea name="description" id="description" cols="30" rows="4" class="form-control"></textarea>
+                        <textarea name="description" id="description" cols="30" rows="4" class="form-control" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="closing_day" class="form-label">Imposta data chiusura votazione</label>
+                        <input name="closing_day" type="date" class="form-control" id="closing_day">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Imposta tipo di votazione</label>
+                        <select name="is_private" class="form-select" required>
+                        <option value="1">Privata</option>
+                        <option value="0">Pubblica</option>        
+                        </select> 
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
