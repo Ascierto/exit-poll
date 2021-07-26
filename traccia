@@ -21,7 +21,19 @@ con annessa pagina dove creo una votazione.
 dopodichè creo la pagina voto che prenderà il name dalla tabella votazione e dove sarà possibile votare,
 sarà questo il momento di creare l'entita result che inserirà nella tabella results cosa le persone hanno scelto.
 
-fatto ciò ho riscontrato che i dati arrivano, quindi ora posso predisporrela tab risultati con id, id_polls che mi porto 
+fatto ciò ho riscontrato che i dati arrivano, quindi ora posso predisporre la tab risultati con id, id_polls che mi porto 
 dal form e la preferenza espressa! creo quindi entità Risultati per inserire i dati ricevuti e mostrarli ai visitatori.
+
+questo avanzamento è funzionante(ancora rozzo)
+
+
+Next step : inserire qualche dato e preparare la query che mi da i risultati per poi stamparli in pagina e se ho tempo
+provare a predisporre un pieChar dei risultati.
+
+NB ricorda che la tabella polls ha un flag is_private, quindi dal form insert puoi add select ed l'admni può scegliere
+se la votazione è pubblica o privata... poi quando mostri se l'utente è loggato mostra, altrimenti nn mostrare.
+inoltre puoi aggiungere un campo dead_line dove scegli il giorno di chiusura.
+l'admin puoi decidere attraverso un bottone di chiudere la votazione.
+
 
 ...poi andrò a gestire login e accessi alle varie votazioni.
