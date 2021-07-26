@@ -1,0 +1,27 @@
+PROGETTO 2
+
+Progettare un sistema di voto online che dia la possibilità all'amministratore di:
+1. Gestire le votazioni (crearne di nuove, visualizzare i risultati delle vecchie, eliminarle, sancirne il termine)
+Nello specifico le votazioni possono essere pubbliche o private dove:
+• Le votazioni pubbliche sono aperte sia ad utenti registrati che non
+• Le votrazioni private sono aperte solo agli utenti registrati
+La registrazione di nuovi utenti è aperta a tutti e può essere fatta in autonomia attraverso l'apposito form
+di registrazione.
+L'utente anonimo potrà vedere le votazioni pubbliche e parteciparvi, mentre quello registrato le vedrà entrambe.
+L'utente registrato, inoltre, potrà vedere il risultato delle votazioni solo quando la votazione sarà contrassegnata dall'amministratore come conclusa.
+Ricorda:
+• Proteggere le rotte alla quale l'utente non può accedere
+
+
+-creata registrazione funzionante con gestione errori.
+
+adesso creo entità Polls che gestirà la mia votazione(in inserimento);
+con annessa pagina dove creo una votazione.
+
+dopodichè creo la pagina voto che prenderà il name dalla tabella votazione e dove sarà possibile votare,
+sarà questo il momento di creare l'entita result che inserirà nella tabella results cosa le persone hanno scelto.
+
+fatto ciò ho riscontrato che i dati arrivano, quindi ora posso predisporrela tab risultati con id, id_polls che mi porto 
+dal form e la preferenza espressa! creo quindi entità Risultati per inserire i dati ricevuti e mostrarli ai visitatori.
+
+...poi andrò a gestire login e accessi alle varie votazioni.
