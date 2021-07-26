@@ -34,6 +34,15 @@ NB ricorda che la tabella polls ha un flag is_private, quindi dal form insert pu
 se la votazione è pubblica o privata... poi quando mostri se l'utente è loggato mostra, altrimenti nn mostrare.
 inoltre puoi aggiungere un campo dead_line dove scegli il giorno di chiusura.
 l'admin puoi decidere attraverso un bottone di chiudere la votazione.
+creato bottone che chiude votazione e nn è più possibile votare. potre inserire oltre a votazione chiusa un link per i 
+risultati e sfruttare quello che già ho ma che sarà visibile solo all'admin.
+
+
+Aggiornamento dal quale partire : la delete è scritta e settata ma non funziona,sistemarla.
+
+adesso procedo con la delete della votazione
+
+creo una pagina per admin con storico votazioni.
 
 
 ...poi andrò a gestire login e accessi alle varie votazioni.

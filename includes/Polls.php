@@ -103,4 +103,23 @@ class Poll{
             exit;
         }
     }
+
+    public static function deletePoll($id){
+
+        $db= connect();
+
+    
+        $query = $db->prepare('DELETE FROM polls WHERE id = ?');
+        $query->bind_param('s', $id);
+        $query->execute();
+
+        if ($query->affected_rows > 0) {
+            header('Location: http://localhost:8888/exit-poll/show-polls.php?statocanc=ok');
+            exit;
+        } else {
+            header('Location: http://localhost:8888/exit-poll/show-polls.php?statocanc=ko');
+            exit;
+        }
+        
+    }
 }
