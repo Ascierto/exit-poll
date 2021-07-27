@@ -58,5 +58,7 @@ dove la pagina votazioni pubbliche conterrà strettamente solo votazioni dove is
 la pagina votazioni private avrà a disposizione tutte le votazioni e sarà visibile solo se loggati,quindi in maniera 
 dinamica faccio cambiare link sulla nav
 
+fare pagina votazioni pubbliche e al posto del bottono guarda i risultati,faccio bottone per login.
+
 - IMP! quando inserisco una data fine votazione non può essere antecedente ad oggi.
 un controllo if $pippo['closing_day] <= NOw() errore

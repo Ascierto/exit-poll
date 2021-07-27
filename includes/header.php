@@ -37,10 +37,10 @@
                      <a class="nav-link active" aria-current="page" href="#">Ciao <?php echo $_SESSION['name']; ?></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/exit-poll/includes/login.php?logout=1">Logout</a>
+                    <a class="nav-link" href="/exit-poll/admin.php">Admin</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/exit-poll/admin.php">Admin</a>
+                    <a class="nav-link" href="/exit-poll/includes/login.php?logout=1">Logout</a>
                 </li>
             </ul>
         </span>
