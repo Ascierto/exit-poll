@@ -62,3 +62,5 @@ fare pagina votazioni pubbliche e al posto del bottono guarda i risultati,faccio
 
 - IMP! quando inserisco una data fine votazione non può essere antecedente ad oggi.
 un controllo if $pippo['closing_day] <= NOw() errore
+
+trova qualcosa per riempire homepage.
