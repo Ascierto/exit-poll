@@ -1,6 +1,13 @@
 <?php
 
 session_start();
+
+if (!isset($_SESSION['is_admin'])) {
+    header('Location: http://localhost:8888/exit-poll/login.php');
+  }elseif ($_SESSION['is_admin'] == 0){
+    header('Location: http://localhost:8888/exit-poll/?stato=errore&messages=Impossibile accedere');
+  }
+
  include __DIR__ . '/includes/globals.php';
 
  if (isset($_GET['stato'])) {

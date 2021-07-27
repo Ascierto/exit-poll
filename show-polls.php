@@ -2,6 +2,10 @@
 
 session_start();
 
+if (!isset($_SESSION['email'])) {
+    header('Location: http://localhost:8888/exit-poll/login.php');
+  }
+
     include __DIR__ . '/includes/globals.php';
 
     if (isset($_GET['stato'])) {

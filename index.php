@@ -1,6 +1,10 @@
 <?php
     session_start();
     include __DIR__ . '/includes/globals.php';
+
+    if (isset($_GET['stato'])) {
+        \ExitPoll\Utils\show_alert('inserimento', $_GET['stato']);
+    }
 ?>
 
 

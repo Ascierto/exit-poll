@@ -42,12 +42,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/exit-poll/admin.php">Admin</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/exit-poll/login.php">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/exit-poll/register.php">Registrati</a>
-               </li>
             </ul>
         </span>
         <?php elseif ( isset( $_SESSION['email'] ) && $_SESSION['is_admin'] == 0): ?>
