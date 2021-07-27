@@ -53,7 +53,7 @@ class Poll{
             header('Location: http://localhost:8888/exit-poll/create-poll.php?stato=ko');
             exit;
         }else{
-            
+                
             header('Location: http://localhost:8888/exit-poll/create-poll.php?stato=ok');
             exit;
         }

@@ -27,9 +27,16 @@ class Results{
             header('Location: http://localhost:8888/exit-poll/show-polls.php?stato=ko');
             exit;
         }else{
+
+            if(isset($_SESSION['email'])){
+
+                header('Location: http://localhost:8888/exit-poll/show-polls.php?stato=ok');
+                exit;
+            }else{
+                header('Location: http://localhost:8888/exit-poll/public-polls.php?stato=ok');
+                exit;
+            }
             
-            header('Location: http://localhost:8888/exit-poll/show-polls.php?stato=ok');
-            exit;
         }
 
         $query->close();
