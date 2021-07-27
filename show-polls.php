@@ -20,12 +20,7 @@
             <?php foreach($polls as $poll) : ?>
                 <div class="card my-5">
 
-                    <div class="card-header text-end">
-                        <!-- questi link saranno disponibili solo all'admin -->
-                        <a href="./includes/delete-poll.php?id=<?php echo $poll['id'] ?>" class="btn btn-danger">Elimina votazione!</a>
-                        <a href="./includes/close-poll.php?id=<?php echo $poll['id'] ?>" class="btn btn-outline-danger">Chiudi Votazione!</a>
-                        <a href="./live-results.php?id=<?php echo $poll['id'] ?>" class="btn btn-outline-warning">Risultati Live!</a>
-                    </div>
+                  
                     <div class="card-body">
                         
                         <h3> <?php echo $poll['name_poll'] ?> </h3>

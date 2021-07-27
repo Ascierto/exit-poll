@@ -1,9 +1,9 @@
 PROGETTO 2
 
 Progettare un sistema di voto online che dia la possibilità all'amministratore di:
-1. Gestire le votazioni (crearne di nuove, visualizzare i risultati delle vecchie, eliminarle, sancirne il termine)
+1. Gestire le votazioni (crearne di nuove, visualizzare i risultati delle vecchie, eliminarle, sancirne il termine) 
 Nello specifico le votazioni possono essere pubbliche o private dove:
-• Le votazioni pubbliche sono aperte sia ad utenti registrati che non
+• Le votazioni pubbliche sono aperte sia ad utenti registrati che non 
 • Le votrazioni private sono aperte solo agli utenti registrati
 La registrazione di nuovi utenti è aperta a tutti e può essere fatta in autonomia attraverso l'apposito form
 di registrazione.
@@ -38,11 +38,16 @@ creato bottone che chiude votazione e nn è più possibile votare. potre inserir
 risultati e sfruttare quello che già ho ma che sarà visibile solo all'admin.
 
 
-Aggiornamento dal quale partire : la delete è scritta e settata ma non funziona,sistemarla.
 
 adesso procedo con la delete della votazione
+
+----
+
+poteri ipotizzare di creare una pagina votazioni pubbliche ed una pagina votazioni private, forse mi conviene.
 
 creo una pagina per admin con storico votazioni.
 
 
-...poi andrò a gestire login e accessi alle varie votazioni.
+
+...poi andrò a gestire login e accessi alle varie votazioni ricordando di non mostrare cose da admin agli utenti e
+buttando fuori i visitatori dalle rotte nn accessibili.
