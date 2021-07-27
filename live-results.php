@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 include __DIR__ . '/includes/globals.php';
 
 $count = \ExitPoll\Results::getCountVoters($_GET['id']);

@@ -43,11 +43,20 @@ adesso procedo con la delete della votazione
 
 ----
 
-poteri ipotizzare di creare una pagina votazioni pubbliche ed una pagina votazioni private, forse mi conviene.
 
 creo una pagina per admin con storico votazioni ricorda di formattare la data creazione ed inserisci data chiusura.
 
 
+Adesso manca solo :
+
 
 ...poi andrò a gestire login e accessi alle varie votazioni ricordando di non mostrare cose da admin agli utenti e
 buttando fuori i visitatori dalle rotte nn accessibili.
+
+poteri ipotizzare di creare una pagina votazioni pubbliche ed una pagina votazioni private, forse mi conviene
+dove la pagina votazioni pubbliche conterrà strettamente solo votazioni dove is_pubb = 0,
+la pagina votazioni private avrà a disposizione tutte le votazioni e sarà visibile solo se loggati,quindi in maniera 
+dinamica faccio cambiare link sulla nav
+
+- IMP! quando inserisco una data fine votazione non può essere antecedente ad oggi.
+un controllo if $pippo['closing_day] <= NOw() errore

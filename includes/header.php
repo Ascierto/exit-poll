@@ -19,6 +19,7 @@
         <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarText">
+        <?php if ( isset( $_SESSION['email'] ) && $_SESSION['is_admin'] == 1): ?>
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="./">Home</a>
@@ -32,7 +33,13 @@
         </ul>
         <span class="navbar-text">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
+                <li class="nav-item">
+                     <a class="nav-link active" aria-current="page" href="#">Ciao <?php echo $_SESSION['name']; ?></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/exit-poll/includes/login.php?logout=1">Logout</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="/exit-poll/admin.php">Admin</a>
                 </li>
                 <li class="nav-item">
@@ -40,9 +47,40 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/exit-poll/register.php">Registrati</a>
-                </li>
+               </li>
             </ul>
         </span>
+        <?php elseif ( isset( $_SESSION['email'] ) && $_SESSION['is_admin'] == 0): ?>
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="./">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/exit-poll/show-polls.php">Votazioni</a>
+            </li>
+            <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Ciao <?php echo $_SESSION['name']; ?></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/exit-poll/includes/login.php?logout=1">Logout</a>
+            </li>
+        </ul>
+        <?php else : ?>
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="./">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/exit-poll/public-polls.php">Votazioni Pubbliche</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/exit-poll/login.php">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/exit-poll/register.php">Registrati</a>
+            </li>
+         </ul>
+        <?php endif; ?>
         </div>
     </div>
 </nav>
