@@ -29,7 +29,7 @@ if (!isset($_SESSION['is_admin'])) {
                     </div>
                     <div class="mb-3">
                         <label for="closing_day" class="form-label">Imposta data chiusura votazione</label>
-                        <input name="closing_day" type="date" class="form-control" id="closing_day">
+                        <input name="closing_day" type="date" class="form-control" id="closing_day" required>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Imposta tipo di votazione</label>
