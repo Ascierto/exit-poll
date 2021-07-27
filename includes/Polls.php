@@ -1,6 +1,8 @@
 <?php
 namespace ExitPoll;
 
+use DateTime;
+
 include __DIR__ . '/globals.php';
 
 class Poll{
@@ -14,6 +16,7 @@ class Poll{
     }
 
     public static function validDate($input){
+
         return  implode('-', array_reverse(explode('/',$input)));
     }
 
@@ -39,6 +42,15 @@ class Poll{
         );
 
         $form_data['closing_day']= self::validDate($form_data['closing_day']);
+
+            $today = new DateTime();
+            $date_tocheck   = new DateTime($form_data['closing_day']);
+
+            if ($today > $date_tocheck) {
+
+                header('Location: http://localhost:8888/exit-poll/create-poll.php?stato=errore&messages=Inserisci una data valida');
+                 exit;
+            }
 
         $form_data= self::sanitize($form_data);
 
