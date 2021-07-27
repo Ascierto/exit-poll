@@ -69,12 +69,38 @@ class Poll{
 
         if ($id) {
            
-            $query      = $db->prepare('SELECT * FROM polls WHERE polls.id = ? AND is_deleted =0');
+            $query = $db->prepare('SELECT * FROM polls WHERE polls.id = ? AND is_deleted =0');
             $query->bind_param('i', $id);
             $query->execute();
             $query = $query->get_result();
         } else {
             $query = $db->query('SELECT * FROM polls where is_deleted =0');
+        }
+
+        $results = array();
+
+        while ($row = $query->fetch_assoc()) {
+            $results[] = $row;
+        }
+
+        return $results;
+
+    }
+
+    public static function showPublicPoll($id=null){
+
+        
+
+        $db=connect();
+
+        if ($id) {
+           
+            $query = $db->prepare('SELECT * FROM polls WHERE polls.id = ? AND is_deleted =0 AND is_private=0');
+            $query->bind_param('i', $id);
+            $query->execute();
+            $query = $query->get_result();
+        } else {
+            $query = $db->query('SELECT * FROM polls where is_deleted =0 AND is_private=0');
         }
 
         $results = array();
