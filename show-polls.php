@@ -3,6 +3,8 @@
 
     if (isset($_GET['stato'])) {
         \ExitPoll\Utils\show_alert('inserimento', $_GET['stato']);
+    }elseif(isset($_GET['statocanc'])){
+        \ExitPoll\Utils\show_alert('cancellazione', $_GET['statocanc']);
     }
 
     $polls = \ExitPoll\Poll::showPoll();

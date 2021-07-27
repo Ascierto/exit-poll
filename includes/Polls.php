@@ -69,12 +69,12 @@ class Poll{
 
         if ($id) {
            
-            $query      = $db->prepare('SELECT * FROM polls WHERE polls.id = ?');
+            $query      = $db->prepare('SELECT * FROM polls WHERE polls.id = ? AND is_deleted =0');
             $query->bind_param('i', $id);
             $query->execute();
             $query = $query->get_result();
         } else {
-            $query = $db->query('SELECT * FROM polls');
+            $query = $db->query('SELECT * FROM polls where is_deleted =0');
         }
 
         $results = array();
@@ -104,14 +104,20 @@ class Poll{
         }
     }
 
-    public static function deletePoll($id){
+    public static function softdeletePoll($id){
 
         $db= connect();
 
+
+      if ( $id ) {
+
+        $id = intval($id);
+
     
-        $query = $db->prepare('DELETE FROM polls WHERE id = ?');
-        $query->bind_param('s', $id);
+        $query = $db->prepare("UPDATE polls SET is_deleted =1 WHERE id=?");
+        $query->bind_param('i', $id);
         $query->execute();
+
 
         if ($query->affected_rows > 0) {
             header('Location: http://localhost:8888/exit-poll/show-polls.php?statocanc=ok');
@@ -120,6 +126,8 @@ class Poll{
             header('Location: http://localhost:8888/exit-poll/show-polls.php?statocanc=ko');
             exit;
         }
+       
+    }   
         
     }
 }
